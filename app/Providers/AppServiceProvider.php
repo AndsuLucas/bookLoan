@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Domain\Repositories\User\UserRepository;
+use App\Models\User;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->bind('App\Domain\Repositories\User\UserRepositoryAbstract', function($app){
+            return new \App\Domain\Repositories\User\UserRepository($app->make(User::class));
+        });
+
     }
 }
