@@ -4,13 +4,13 @@ use App\Domain\Repositories\User\UserRepositoryAbstract;
 
 class UserRepository extends UserRepositoryAbstract
 {
-    public function __construct($dataManager)
+    public function __construct(UserDataManagerInterface $userDataManager)
     {
-        $this->dataManger = $dataManger;
+        $this->dataManger = $userDataManager;
     }
 
     public function registerNewUser(array $data): bool
     {
-        return true;
+        dd('create', $this->dataManger->create([]));
     }
 }
