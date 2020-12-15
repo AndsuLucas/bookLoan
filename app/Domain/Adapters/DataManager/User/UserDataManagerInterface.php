@@ -1,5 +1,5 @@
 <?php
-namespace App\Domain\Adapters\DataManager\User\Laravel;
+namespace App\Domain\Adapters\DataManager\User;
 
 interface UserDataManagerInterface
 {
