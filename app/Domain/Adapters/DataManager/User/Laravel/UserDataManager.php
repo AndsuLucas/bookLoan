@@ -18,8 +18,9 @@ class UserDataManager implements UserDataManagerInterface
         return true;
     }
 
-    public function findByEmail(string $emailAddress): array
+
+    public function findById(int $id): array
     {
-        return ['id' => 1];
+        return ['username' => 'xablau'];
     }
 }

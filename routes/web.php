@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', '\App\Http\Controllers\UserController@test');
 Route::get('/books', '\App\Http\Controllers\BookController@getBooks');
+Route::match(['get', 'post'], '/register', '\App\Http\Controllers\UserController@register');
+
+Route::get('/user/profile/{id}', '\App\Http\Controllers\UserController@profile');
+
+Route::view('/', 'principal');

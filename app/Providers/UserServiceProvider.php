@@ -15,8 +15,7 @@ class UserServiceProvider extends ServiceProvider implements DeferrableProvider
 
         $this->app->bind(UserRepositoryAbstract::class, function($app){
             $userDataManager = $app->make(UserDataManager::class);
-            dd($userDataManager);
-            return new \App\Domain\Repositories\User\UserRepository($app->make(User::class));
+            return new \App\Domain\Repositories\User\UserRepository($userDataManager);
         });
     }
 

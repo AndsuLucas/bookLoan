@@ -1,0 +1,17 @@
+version: "3"
+services:
+  php:
+    build:
+      context: .
+      dockerfile: ./docker/php/Php.Dockerfile
+    container_name: 'bookLoanCode'
+    networks:
+      - database
+    volumes:
+      - .:/var/www
+    ports:
+      - "8000:8000"
+
+networks:
+  database:
+    driver: bridge
