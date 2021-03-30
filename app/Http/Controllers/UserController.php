@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use App\Domain\Repositories\User\UserRepositoryAbstract;
 
 class UserController extends Controller
@@ -21,7 +20,8 @@ class UserController extends Controller
     		dd('show a view');
     	}
 
-        dd($this->userRepository->registerNewUser([]));
+        $id = $this->userRepository->registerNewUser([]);
+        return redirect()->route('viewProfile', ['id' => $id]);
     }
 
     public function profile($id)

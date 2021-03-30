@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
-    public function getBooks()
+    public function getBooks(Request $request)
     {
-        dd('salve');
+        return redirect()->route('userRegister');
     }
 }
